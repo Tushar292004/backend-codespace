@@ -31,3 +31,11 @@ This project was created using `bun init` in bun v1.1.21. [Bun](https://bun.sh) 
         - key to remember :  ( always remember the database is in another continent, so use async await)
 
 - Used two approach to connect the database - 1. In Index File, 2. In Seprate DB file
+
+# Mongoose Model Making and Setup
+
+```bash
+bun i mongoose-aggregate-paginate-v2
+```
+
+Mongoose aggregate paginate : This package helps in writing aggregation query (true power of mongoose)

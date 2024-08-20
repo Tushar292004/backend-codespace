@@ -19,6 +19,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.5.3",
+    "mongoose-aggregate-paginate-v2": "^1.1.2",
     "typescript": "^5.5.4",
     "undici-types": "^5.26.5"
   },
