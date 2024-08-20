@@ -53,3 +53,14 @@ Also called, Bearer Token =>  Anyone which will send this token will recive the 
 
 Pre Hook : Used to encrypt the password justs before saving them in database, cant use arrow function in pre hook callback function becz they dont have this.constructor refference in them which is neccessary for the pre hook, use async function with next reffernece
 
+# File upload in Backend
+Cloudnary : 
+```bash
+npm i cloudinary
+bun i cloudinary
+```
+Express-fileupload or Multer
+```bash
+npm i multer
+bun i multer
+```
