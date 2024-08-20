@@ -37,5 +37,15 @@ This project was created using `bun init` in bun v1.1.21. [Bun](https://bun.sh) 
 ```bash
 bun i mongoose-aggregate-paginate-v2
 ```
-
 Mongoose aggregate paginate : This package helps in writing aggregation query (true power of mongoose)
+
+```bash
+bun i bcryptjs 
+bun i bcrypt
+```
+This bcrypt library helps us ot hash our password.
+
+```bash
+bun i jsonwebtoken
+```
+JWT : JSON web token are made cryptographically {payload, verification signature, secret}
