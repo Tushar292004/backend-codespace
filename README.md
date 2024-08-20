@@ -43,9 +43,13 @@ Mongoose aggregate paginate : This package helps in writing aggregation query (t
 bun i bcryptjs 
 bun i bcrypt
 ```
-This bcrypt library helps us ot hash our password.
+This bcrypt library helps us ot hash our password. And can also check your passwords
 
 ```bash
 bun i jsonwebtoken
 ```
-JWT : JSON web token are made cryptographically {payload, verification signature, secret}
+JWT : JSON web tokens are made cryptographically {payload, verification signature, secret}
+Also called, Bearer Token =>  Anyone which will send this token will recive the data from database
+
+Pre Hook : Used to encrypt the password justs before saving them in database, cant use arrow function in pre hook callback function becz they dont have this.constructor refference in them which is neccessary for the pre hook, use async function with next reffernece
+

@@ -1,6 +1,7 @@
 import mongoose, {Schema} from "mongoose";
 import  jwt from "jsonwebtoken";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
+
 
 const userSchema = new Schema({
     username: {
@@ -48,5 +49,19 @@ const userSchema = new Schema({
 {
     timestamps: true,
 })
+
+//pre hook :  using to encrypt the password justs before saving them in database
+//cant use arrow function in pre hook callback becz they dont have this.constructor refference in them which is neccessary for the pre hook use async function with next reffernece
+userSchema.pre("save", async function (next){
+    //for flase
+    if( !this.isModified("password") ) return next(); 
+    //for true
+    this.password = bcrypt.hash(this.password, 10)
+    next();
+})
+
+userSchema.methods.isPasswordCorrect = async function (password){
+   return await bcrypt.compare(password, this.password)
+}
 
 export const User = mongoose.model("User", userSchema)
