@@ -14,16 +14,13 @@ const uploadOnCloudnary = async (localFilePath)=>{
         cloudinary.uploader.upload(localFilePath, {
             resource_type: "auto",               
         })
-        console.log("file is Successfully uploaded");
-        response.url
-        return response
+        console.log("file is Successfully uploaded", response.url);
+        return response;
     } catch (error) {
-        
+        //remove the locally saved temp. file as the upload operation got failed
+        fs.unlinkSync(localFilePath);
+        return null;
     }
 }
 
-cloudinary.v2.uploader.upload("",
-    { public_id: "olympic_flag"},
-    function (error, result) {console.log(result);
-    }
-)
+export { uploadOnCloudnary }
