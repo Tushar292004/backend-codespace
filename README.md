@@ -14,6 +14,7 @@ bun run index.js
 
 This project was created using `bun init` in bun v1.1.21. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
+-Express async function has four parameters : error, request, response, next
 
 # Connecting database in MERN with debugging
 
