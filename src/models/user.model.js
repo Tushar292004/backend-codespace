@@ -56,7 +56,7 @@ userSchema.pre("save", async function (next){
     //for flase
     if( !this.isModified("password") ) return next(); 
     //for true
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next();
 })
 
