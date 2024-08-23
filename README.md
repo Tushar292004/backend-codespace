@@ -37,30 +37,32 @@ This project was created using `bun init` in bun v1.1.21. [Bun](https://bun.sh) 
 ```bash
 bun i mongoose-aggregate-paginate-v2
 ```
-Mongoose aggregate paginate : This package helps in writing aggregation query (true power of mongoose)
+- Mongoose aggregate paginate : This package helps in writing aggregation query (true power of mongoose)
 
 ```bash
 bun i bcryptjs 
 bun i bcrypt
 ```
-This bcrypt library helps us ot hash our password. And can also check your passwords
+- This bcrypt library helps us ot hash our password. And can also check your passwords
 
 ```bash
 bun i jsonwebtoken
 ```
-JWT : JSON web tokens are made cryptographically {payload, verification signature, secret}
+- JWT : JSON web tokens are made cryptographically {payload, verification signature, secret}
 Also called, Bearer Token =>  Anyone which will send this token will recive the data from database
 
-Pre Hook : Used to encrypt the password justs before saving them in database, cant use arrow function in pre hook callback function becz they dont have this.constructor refference in them which is neccessary for the pre hook, use async function with next reffernece
+- Pre Hook : Used to encrypt the password justs before saving them in database, cant use arrow function in pre hook callback function becz they dont have this.constructor refference in them which is neccessary for the pre hook, use async function with next reffernece
 
 # File upload in Backend
-Cloudnary : 
+- Cloudnary : Storage Service for Photos, Videos etc.
 ```bash
 npm i cloudinary
 bun i cloudinary
 ```
+
 Express-fileupload or Multer
 ```bash
 npm i multer
 bun i multer
 ```
+- Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
