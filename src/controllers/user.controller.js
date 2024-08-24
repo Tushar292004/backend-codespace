@@ -8,7 +8,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(200).json({
         message: "ok"
     })
-    //FLOW OF USER REGISTRATION CONTROLLER
+    // FLOW OF USER REGISTRATION CONTROLLER
     // get user details from frontend
     // validation - not empty
     // check if user already exists - username, email

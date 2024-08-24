@@ -67,3 +67,14 @@ npm i multer
 bun i multer
 ```
 - Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+
+# Logic For User Registraton
+- get user details from frontend
+- validation - not empty
+- check if user already exists - username, email
+- check for images, check for avatar
+- upload them to cloudinary, avatar 
+- create user object - creat entry in db
+- remove password & refresh token field from response
+- check for user creation
+- return response
