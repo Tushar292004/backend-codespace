@@ -87,3 +87,7 @@ bun i multer
 - access and refresh token 
 - send cookies
 - return response
+
+-Access Token - Short lived, not stored in db
+Refresh Token - Long lived, stored in db
+When access token expires, the frontend sends the refresh token to the backend to validate user (login), once again.

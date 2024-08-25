@@ -3,8 +3,10 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import jwt from "jsonwebtoken"
+import mongoose from "mongoose";
 
-const generateAccessAndRefreshTokens = async (userId) => {
+const generateAccessAndRefereshTokens = async(userId) =>{
     try {
         const user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
@@ -12,10 +14,12 @@ const generateAccessAndRefreshTokens = async (userId) => {
 
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
-        return { accessToken, refreshToken }
+
+        return {accessToken, refreshToken}
 
     } catch (error) {
-        throw new ApiError(500, "Something went wrong while generating refresh and access token")
+        // throw new ApiError(500, "Something went wrong while generating referesh and access token")
+        throw error
     }
 }
 
@@ -94,25 +98,26 @@ const loginUser = asyncHandler(async (req, res) => {
     // req body -> data  
     const { email, username, password } = req.body
     // username or email
-    if (!username || !email) {
-        throw new ApiError(400, "username or password is required")
+    if (!username && !email) {
+        throw new ApiError(400, "Username or email is required")
     }
     // find the user
     const user = await User.findOne({ $or: [{ username }, { email }] })
     // if user doesnt exist
     if (!user) {
-        throw new ApiError(404, "user does not exist")
+        throw new ApiError(404, "User does not exist")
     }
     // password check
     const isPasswordValid = await user.isPasswordCorrect(password)
+    // if password is invalid
     if (!isPasswordValid) {
         throw new ApiError(401, "Invalid user credentials")
     }
     // access and refresh token 
-    const { accessToken, refreshToken } = await generateAccessAndRefreshTokens(user._id)
+    const {accessToken, refreshToken} = await generateAccessAndRefereshTokens(user._id)
     // send cookies
-    const loggedInUser = await User.findById(user._id).
-    select("-password -refreshToken")
+    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+
 
     const options = {
         httpOnly: true, //this make cookies modifiable only from server not form frontend
