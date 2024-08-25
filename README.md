@@ -78,3 +78,12 @@ bun i multer
 - remove password & refresh token field from response
 - check for user creation
 - return response
+
+# Logic for User Login
+- req body -> data
+- username or email
+- find the user
+- password check
+- access and refresh token 
+- send cookies
+- return response
